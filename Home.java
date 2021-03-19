@@ -1,5 +1,7 @@
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 public class Home extends JFrame {
     JPanel rootPanel= new JPanel(null);
@@ -35,7 +37,36 @@ public class Home extends JFrame {
     }
 
     public void createRight(){
-
+        JLabel heading= new JLabel("LOGIN");
+        heading.setOpaque(true);
+        heading.setForeground(Color.darkGray);
+        heading.setFont(new Font(Font.MONOSPACED, Font.PLAIN, 20));
+        Dimension d= heading.getPreferredSize();
+        heading.setBounds(300+(150-(d.width/2)), 30, d.width, d.height);
+        rootPanel.add(heading);
+        JButton loginAsStudent= new JButton("Login As Student");
+        loginAsStudent.setFocusable(false);
+        loginAsStudent.setOpaque(true);
+        loginAsStudent.setBackground(Color.darkGray);
+        loginAsStudent.setForeground(Color.white);
+        loginAsStudent.setFont(new Font("Calibri", Font.PLAIN, 20));
+        loginAsStudent.setBounds(300+(150-100), 200, 200, 40);
+        loginAsStudent.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                StudentLoginOptions loginOptions= new StudentLoginOptions();
+                loginOptions.setVisible(true);
+            }
+        });
+        rootPanel.add(loginAsStudent);
+        JButton loginAsTeacher= new JButton("Login As Teacher");
+        loginAsTeacher.setFocusable(false);
+        loginAsTeacher.setOpaque(true);
+        loginAsTeacher.setBackground(Color.darkGray);
+        loginAsTeacher.setForeground(Color.white);
+        loginAsTeacher.setFont(new Font("Calibri", Font.PLAIN, 20));
+        loginAsTeacher.setBounds(300+(150-100), 400, 200, 40);
+        rootPanel.add(loginAsTeacher);
     }
 
 }
